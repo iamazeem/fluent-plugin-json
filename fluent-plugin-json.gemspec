@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email          = ['azeem.sajid@gmail.com']
 
   spec.summary        = 'Fluentd filter plugin for JSON events with JSON Pointer Support'
-  spec.description    = 'Fluentd filter plugin for JSON events with JSON Pointer Support'
+  spec.description    = 'Fluentd filter plugin for JSON events with JSON Pointer Support to pinpoint elements.'
   spec.homepage       = 'https://github.com/iamAzeem/fluent-plugin-json'
   spec.license        = 'Apache-2.0'
 
@@ -23,8 +23,9 @@ Gem::Specification.new do |spec|
   spec.require_paths  = ['lib']
 
   spec.add_development_dependency 'bundler', '~> 1.14'
-  spec.add_development_dependency 'hana', '~> 1.3.6'
+  spec.add_development_dependency 'hana', '~> 1.3', '>= 1.3.6'
   spec.add_development_dependency 'rake', '~> 12.0'
   spec.add_development_dependency 'test-unit', '~> 3.0'
   spec.add_runtime_dependency 'fluentd', ['>= 0.14.10', '< 2']
+  spec.add_runtime_dependency 'hana', '~> 1.3', '>= 1.3.6'
 end
