@@ -1,5 +1,8 @@
 # fluent-plugin-json
 
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache-blue.svg?style=flat-square)](https://github.com/iamAzeem/fluent-plugin-json/blob/master/LICENSE)
+[![RubyGems Downloads](https://img.shields.io/gem/dt/fluent-plugin-json?color=blue&style=flat-square&label=Downloads)](https://rubygems.org/gems/fluent-plugin-json)
+
 [Fluentd](https://fluentd.org/) filter plugin for JSON with JSON pointer support
 ([RFC-6901](https://tools.ietf.org/html/rfc6901)).
 
@@ -36,22 +39,23 @@ The configuration consists of one or more check(s). Each check contains a
 `pointer` to a JSON element and a `pattern` (regex) to test it.
 
 The checks are evaluated sequentially. The failure of a single check results in
-rejection of the event. A rejected event is not routed for further processing.
+the rejection of the event. A rejected event is not routed for further
+processing.
 
 NOTE: The JSON element pointed to by the `pointer` is always converted to string
 for testing with the `pattern` (regular expression).
 
-For examples of the syntax of:
+For detailed syntax of:
 
-- JSON Pointer, see [RFC-6901](https://tools.ietf.org/html/rfc6901#section-5).
+- JSON Pointer, see [RFC-6901](https://tools.ietf.org/html/rfc6901#section-5); and,
 - Ruby's Regular Expression, see [Regexp](https://ruby-doc.org/core-2.4.1/Regexp.html).
 
 ### Example
 
-Here is a configuration with the input plugin
-[`forward`](https://docs.fluentd.org/v/1.0/input/forward), `json` filter plugin
-with multiple checks and routing to the output plugin
-[`stdout`](https://docs.fluentd.org/v/1.0/output/stdout):
+Here is a configuration with
+[`forward`](https://docs.fluentd.org/v/1.0/input/forward) input plugin, `json`
+filter plugin with multiple checks and the routing to
+[`stdout`](https://docs.fluentd.org/v/1.0/output/stdout) output plugin:
 
 ```text
 <source>
@@ -74,7 +78,7 @@ with multiple checks and routing to the output plugin
   </check>
 
   <check>
-    pointer   /log/level    # point to { "log": { "level": ... } }
+    pointer   /log/level    # point to { "log": { "level": "info", ... } }
     pattern   /.*/          # check it against all log levels
   </check>
 </filter>
@@ -103,7 +107,7 @@ After passing all the checks, the routed event to `stdout` would be:
 2020-07-23 22:36:06.093187459 +0500 debug.test: {"log":{"user":"test","codes":[123,456],"level":"info"}}
 ```
 
-By default, the logs for checks are generated in `debug` mode only:
+By default, the checks are logged in `debug` mode only:
 
 ```bash
 2020-07-23 22:47:33 +0500 [debug]: #0 [json_filter] check: pass [/log/user -> 'test'] (/test/)
