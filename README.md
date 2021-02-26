@@ -1,7 +1,12 @@
 # fluent-plugin-json
 
-[![License: Apache-2.0](https://img.shields.io/badge/License-Apache-blue.svg?style=flat-square)](https://github.com/iamAzeem/fluent-plugin-json/blob/master/LICENSE)
-[![RubyGems Downloads](https://img.shields.io/gem/dt/fluent-plugin-json?color=blue&style=flat-square&label=Downloads)](https://rubygems.org/gems/fluent-plugin-json)
+[![License: Apache](https://img.shields.io/badge/license-Apache-blue.svg?style=flat-square)](https://github.com/iamAzeem/fluent-plugin-json/blob/master/LICENSE)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/iamAzeem/fluent-plugin-json?style=flat-square)
+[![RubyGems Downloads](https://img.shields.io/gem/dt/fluent-plugin-json?color=blue&style=flat-square)](https://rubygems.org/gems/fluent-plugin-json)
+
+![Lines of code](https://img.shields.io/tokei/lines/github/iamAzeem/fluent-plugin-json?label=LOC&style=flat-square)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/iamAzeem/fluent-plugin-json?style=flat-square)
+![GitHub repo size](https://img.shields.io/github/repo-size/iamAzeem/fluent-plugin-json?style=flat-square)
 
 [Fluentd](https://fluentd.org/) filter plugin for JSON with JSON pointer support
 ([RFC-6901](https://tools.ietf.org/html/rfc6901)).
@@ -116,8 +121,6 @@ By default, the checks are logged in `debug` mode only:
 2020-07-23 22:47:33.577900915 +0500 debug.test: {"log":{"user":"test","codes":[123,456],"level":"info"}}
 ```
 
-## Copyright
+## License
 
-* Copyright &copy; 2020 [Azeem Sajid](https://www.linkedin.com/in/az33msajid/)
-* License
-  * Apache License, Version 2.0
+[Apache 2.0](LICENSE)
