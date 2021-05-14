@@ -1,0 +1,7 @@
+# RuboCop Default Config: https://github.com/rubocop-hq/rubocop/blob/master/config/default.yml
+
+AllCops:
+  NewCops: disable
+
+Gemspec/RequiredRubyVersion:
+  Enabled: false
