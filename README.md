@@ -16,7 +16,7 @@
 ### RubyGems
 
 ```bash
-$ gem install fluent-plugin-json
+gem install fluent-plugin-json
 ```
 
 ### Bundler
@@ -24,13 +24,13 @@ $ gem install fluent-plugin-json
 Add the following line to your Gemfile:
 
 ```ruby
-gem "fluent-plugin-json"
+gem 'fluent-plugin-json'
 ```
 
 And then execute:
 
 ```bash
-$ bundle
+bundle
 ```
 
 ## Configuration
@@ -40,24 +40,24 @@ $ bundle
 * `pointer` (string) (required): The JSON pointer to an element.
 * `pattern` (regexp) (required): The regular expression to match the element.
 
-The configuration consists of one or more check(s). Each check contains a
-`pointer` to a JSON element and a `pattern` (regex) to test it.
+The configuration may consist of one or more checks. Each check contains a
+`pointer` to a JSON element and its corresponding `pattern` (regex) to test it.
 
 The checks are evaluated sequentially. The failure of a single check results in
 the rejection of the event. A rejected event is not routed for further
 processing.
 
-NOTE: The JSON element pointed to by the `pointer` is always converted to string
-for testing with the `pattern` (regular expression).
+**NOTE**: The JSON element pointed to by the `pointer` is always converted to a
+string for testing with the `pattern` (regex).
 
-For detailed syntax of:
+For the detailed syntax of:
 
 - JSON Pointer, see [RFC-6901](https://tools.ietf.org/html/rfc6901#section-5); and,
 - Ruby's Regular Expression, see [Regexp](https://ruby-doc.org/core-2.4.1/Regexp.html).
 
 ### Example
 
-Here is a configuration with
+Here is a sample configuration with
 [`forward`](https://docs.fluentd.org/v/1.0/input/forward) input plugin, `json`
 filter plugin with multiple checks and the routing to
 [`stdout`](https://docs.fluentd.org/v/1.0/output/stdout) output plugin:
@@ -74,23 +74,22 @@ filter plugin with multiple checks and the routing to
 
   <check>
     pointer   /log/user     # point to { "log": { "user": "test", ... } }
-    pattern   /test/i       # check it against username `test` (ignore case)
+    pattern   /test/i       # check it against the value of username `test` (ignore case)
   </check>
 
   <check>
     pointer   /log/codes/0  # point to { "log": { "codes": [123, ...] } }
-    pattern   /123/         # check it against 0th index of codes array
+    pattern   /123/         # check it against the value at 0th index of the codes array i.e. `123`
   </check>
 
   <check>
     pointer   /log/level    # point to { "log": { "level": "info", ... } }
-    pattern   /.*/          # check it against all log levels
+    pattern   /.*/          # check it against all the log levels
   </check>
 </filter>
 
 <match debug.test>
   @type       stdout
-  @id         stdout_output
 </match>
 ```
 
@@ -103,7 +102,7 @@ For a JSON message:
 Sent using `fluent-cat` with tag `debug.test`:
 
 ```bash
-$ echo '{ "log": {"user": "test", "codes": [123, 456], "level": "info"} }' | fluent-cat "debug.test"
+echo '{ "log": {"user": "test", "codes": [123, 456], "level": "info"} }' | fluent-cat "debug.test"
 ```
 
 After passing all the checks, the routed event to `stdout` would be:
@@ -114,12 +113,22 @@ After passing all the checks, the routed event to `stdout` would be:
 
 By default, the checks are logged in `debug` mode only:
 
-```bash
+```text
 2020-07-23 22:47:33 +0500 [debug]: #0 [json_filter] check: pass [/log/user -> 'test'] (/test/)
 2020-07-23 22:47:33 +0500 [debug]: #0 [json_filter] check: pass [/log/codes/0 -> '123'] (/123/)
 2020-07-23 22:47:33 +0500 [debug]: #0 [json_filter] check: pass [/log/level -> 'info'] (/.*/)
 2020-07-23 22:47:33.577900915 +0500 debug.test: {"log":{"user":"test","codes":[123,456],"level":"info"}}
 ```
+
+## Contribute
+
+- Fork the project.
+- Check out the latest `main` branch.
+- Create a feature or bugfix branch from `main`.
+- Commit and push your changes.
+- Make sure to add and run tests locally: `bundle exec rake test`.
+- Run `rubocop` locally and fix all the lint warnings.
+- Submit the PR.
 
 ## License
 
