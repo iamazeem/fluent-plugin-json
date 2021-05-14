@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'helper'
-require 'fluent/plugin/filter_json.rb'
+require 'fluent/plugin/filter_json'
 
 class JsonFilterTest < Test::Unit::TestCase
   setup do
