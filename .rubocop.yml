@@ -5,3 +5,6 @@ AllCops:
 
 Gemspec/RequiredRubyVersion:
   Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
