@@ -5,12 +5,12 @@ $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 
 Gem::Specification.new do |spec|
   spec.name           = 'fluent-plugin-json'
-  spec.version        = '0.1.0'
+  spec.version        = '0.2.0'
   spec.authors        = ['Azeem Sajid']
   spec.email          = ['azeem.sajid@gmail.com']
 
-  spec.summary        = 'Fluentd filter plugin for JSON events with JSON Pointer Support'
-  spec.description    = 'Fluentd filter plugin for JSON events with JSON Pointer Support to pinpoint elements.'
+  spec.summary        = 'Fluentd JSON filter plugin with JSON Pointer Support (RFC-6901)'
+  spec.description    = 'Fluentd JSON filter plugin with JSON Pointer Support (RFC-6901) to pinpoint elements.'
   spec.homepage       = 'https://github.com/iamAzeem/fluent-plugin-json'
   spec.license        = 'Apache-2.0'
 
