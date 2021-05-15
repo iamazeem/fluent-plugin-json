@@ -1,5 +1,6 @@
 # fluent-plugin-json
 
+[![ci](https://github.com/iamazeem/fluent-plugin-json/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/iamazeem/fluent-plugin-json/actions/workflows/ci.yml)
 [![License: Apache](https://img.shields.io/badge/license-Apache-blue.svg?style=flat-square)](https://github.com/iamAzeem/fluent-plugin-json/blob/master/LICENSE)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/iamAzeem/fluent-plugin-json?style=flat-square)
 [![RubyGems Downloads](https://img.shields.io/gem/dt/fluent-plugin-json?color=blue&style=flat-square)](https://rubygems.org/gems/fluent-plugin-json)
