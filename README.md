@@ -9,6 +9,19 @@
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/iamAzeem/fluent-plugin-json?style=flat-square)
 ![GitHub repo size](https://img.shields.io/github/repo-size/iamAzeem/fluent-plugin-json?style=flat-square)
 
+- [fluent-plugin-json](#fluent-plugin-json)
+  - [Overview](#overview)
+  - [Installation](#installation)
+    - [RubyGems](#rubygems)
+    - [Bundler](#bundler)
+  - [Configuration](#configuration)
+    - [`<check>` section (required) (multiple)](#check-section-required-multiple)
+    - [Example](#example)
+  - [Contribute](#contribute)
+  - [License](#license)
+
+## Overview
+
 [Fluentd](https://fluentd.org/) filter plugin for JSON with JSON pointer support
 ([RFC-6901](https://tools.ietf.org/html/rfc6901)).
 
