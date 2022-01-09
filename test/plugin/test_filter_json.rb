@@ -50,6 +50,7 @@ class JsonFilterTest < Test::Unit::TestCase
         <check>
           pointer   /test/
           pattern   /.*/
+          negate    true
         </check>
       )
       d = create_driver(conf)
@@ -103,8 +104,43 @@ class JsonFilterTest < Test::Unit::TestCase
           pattern   /.*/
         </check>
       )
-      filtered_records = filter(conf, records)
-      assert_equal(records.values_at(0), filtered_records)
+      assert_equal(records, filter(conf, records))
+    end
+
+    test 'test negation failure' do
+      conf1 = %(
+        <check>
+          pointer   /log/invalid  # invalid pointer
+          pattern   /debug/
+        </check>
+      )
+      conf2 = %(
+        <check>
+          pointer   /log/level
+          pattern   /debug/       # invalid value
+        </check>
+      )
+      assert_equal([], filter(conf1, records))
+      assert_equal([], filter(conf2, records))
+    end
+
+    test 'test negation success' do
+      conf1 = %(
+        <check>
+          pointer   /log/invalid  # invalid pointer
+          pattern   /debug/
+          negate    true
+        </check>
+      )
+      conf2 = %(
+        <check>
+          pointer   /log/level
+          pattern   /debug/       # invalid value
+          negate    true
+        </check>
+      )
+      assert_equal(records, filter(conf1, records))
+      assert_equal(records, filter(conf2, records))
     end
   end
 end
