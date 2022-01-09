@@ -30,6 +30,8 @@ module Fluent
         config_param :pointer, :string
         desc 'The regular expression to match the element.'
         config_param :pattern, :regexp
+        desc 'Negate the result of match.'
+        config_param :negate, :bool, default: false
       end
 
       def configure(conf)
@@ -48,8 +50,11 @@ module Fluent
         @check.each do |chk|
           pointer = Hana::Pointer.new(chk.pointer)
           pointee = pointer.eval(record).to_s
-          matched = chk.pattern.match(pointee).nil? ? false : true
-          log.debug("check: #{matched ? 'pass' : 'fail'} [#{chk.pointer} -> '#{pointee}'] (/#{chk.pattern.source}/)")
+          matched = chk.pattern.match?(pointee)
+          matched = !matched if chk.negate
+          status = matched ? 'pass' : 'fail'
+          operator = chk.negate ? '!~' : '=~'
+          log.debug("check: #{status} [#{chk.pointer} ('#{pointee}') #{operator} /#{chk.pattern.source}/]")
           return nil unless matched
         end
         record
