@@ -1,24 +1,10 @@
 # fluent-plugin-json
 
 [![ci](https://github.com/iamazeem/fluent-plugin-json/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/iamazeem/fluent-plugin-json/actions/workflows/ci.yml)
-[![License: Apache](https://img.shields.io/badge/license-Apache-blue.svg?style=flat-square)](https://github.com/iamAzeem/fluent-plugin-json/blob/master/LICENSE)
+[![License: Apache](https://img.shields.io/badge/license-Apache-darkgreen.svg?style=flat-square)](https://github.com/iamAzeem/fluent-plugin-json/blob/master/LICENSE)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/iamAzeem/fluent-plugin-json?style=flat-square)
-[![RubyGems Downloads](https://img.shields.io/gem/dt/fluent-plugin-json?color=blue&style=flat-square)](https://rubygems.org/gems/fluent-plugin-json)
-
-![Lines of code](https://img.shields.io/tokei/lines/github/iamAzeem/fluent-plugin-json?label=LOC&style=flat-square)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/iamAzeem/fluent-plugin-json?style=flat-square)
-![GitHub repo size](https://img.shields.io/github/repo-size/iamAzeem/fluent-plugin-json?style=flat-square)
-
-- [fluent-plugin-json](#fluent-plugin-json)
-  - [Overview](#overview)
-  - [Installation](#installation)
-    - [RubyGems](#rubygems)
-    - [Bundler](#bundler)
-  - [Configuration](#configuration)
-    - [`<check>` section (required) (multiple)](#check-section-required-multiple)
-    - [Example](#example)
-  - [Contribute](#contribute)
-  - [License](#license)
+[![RubyGems Downloads](https://img.shields.io/gem/dt/fluent-plugin-json?style=flat-square)](https://rubygems.org/gems/fluent-plugin-json)
+[![Buy Me a Coffee](https://img.shields.io/badge/Support-Buy%20Me%20A%20Coffee-orange.svg?style=flat-square)](https://www.buymeacoffee.com/iamazeem)
 
 ## Overview
 
@@ -29,7 +15,7 @@
 
 ### RubyGems
 
-```bash
+```shell
 gem install fluent-plugin-json
 ```
 
@@ -43,7 +29,7 @@ gem 'fluent-plugin-json'
 
 And then execute:
 
-```bash
+```shell
 bundle
 ```
 
